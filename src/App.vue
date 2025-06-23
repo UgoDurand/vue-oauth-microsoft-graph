@@ -1,25 +1,33 @@
 <template>
   <div id="app">
-    <!-- On affiche directement la HomePage pour l’instant -->
+    <BaseHeader />
     <HomePage />
+    <BaseFooter />
   </div>
 </template>
 
 <script>
-import HomePage from './pages/HomePage.vue'
+import BaseHeader from './components/BaseHeader.vue'
+import HomePage   from './pages/HomePage.vue'
+import BaseFooter from './components/BaseFooter.vue'
 
 export default {
   name: 'App',
   components: {
-    HomePage
+    BaseHeader,
+    HomePage,
+    BaseFooter
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#app > *:not(header):not(footer) {
+  flex: 1;
 }
 </style>
