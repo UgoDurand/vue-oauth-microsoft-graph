@@ -2,8 +2,10 @@
   <div class="homepage">
     <p>Vous êtes sur la page d’accueil.</p>
     <div class="buttons">
-      <BaseButton margin="0 1rem">BaseButton with custom margin</BaseButton>
-      <BaseButton :disabled="true">BaseButton disabled</BaseButton>
+      <BaseButton color="primary" margin="0 1rem">Primary</BaseButton>
+      <BaseButton color="warn"    margin="0 1rem">Warn</BaseButton>
+      <BaseButton color="danger"  margin="0 1rem">Danger</BaseButton>
+      <BaseButton disabled         margin="0 1rem">Disabled</BaseButton>
     </div>
   </div>
 </template>
