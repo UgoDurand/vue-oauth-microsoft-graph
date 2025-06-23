@@ -1,33 +1,21 @@
 <template>
-  <div id="app">
-    <BaseHeader />
+  <BaseLayout>
     <HomePage />
-    <BaseFooter />
-  </div>
+  </BaseLayout>
 </template>
 
 <script>
-import BaseHeader from './components/BaseHeader.vue'
+import BaseLayout from './components/BaseLayout.vue'
 import HomePage   from './pages/HomePage.vue'
-import BaseFooter from './components/BaseFooter.vue'
 
 export default {
   name: 'App',
   components: {
-    BaseHeader,
-    HomePage,
-    BaseFooter
+    BaseLayout,
+    HomePage
   }
 }
 </script>
 
 <style>
-#app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-#app > *:not(header):not(footer) {
-  flex: 1;
-}
 </style>
