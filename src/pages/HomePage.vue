@@ -1,18 +1,26 @@
 <template>
   <div class="homepage">
-    <h1>Bienvenue sur la page d’accueil</h1>
+    <p>Vous êtes sur la page d’accueil.</p>
+    <div class="buttons">
+      <BaseButton margin="0 1rem">BaseButton with custom margin</BaseButton>
+      <BaseButton :disabled="true">BaseButton disabled</BaseButton>
+    </div>
   </div>
 </template>
 
 <script>
+import BaseButton from '../components/BaseButton.vue'
+
 export default {
-  name: 'HomePage'
+  name: 'HomePage',
+  components: { BaseButton }
 }
 </script>
 
 <style scoped>
-.homepage {
-  padding: 1rem;
-  text-align: center;
+.buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 </style>

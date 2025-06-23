@@ -1,21 +1,35 @@
 <template>
   <header class="base-header">
-    <nav>
-      <a href="#" class="logo">MonApp</a>
-      <ul class="nav-links">
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Profil</a></li>
-      </ul>
-    </nav>
+    <BaseButton
+        :primaryColor="buttonColor"
+        margin="0"
+        @click="$emit('go-home')"
+    >
+      <font-awesome-icon :icon="['fas','home']" />
+      <span class="button-text">Accueil</span>
+    </BaseButton>
     <div class="user-info">
-      <span>Invité</span>
+      Invité
     </div>
   </header>
 </template>
 
 <script>
+import BaseButton from './BaseButton.vue'
+import { FontAwesomeIcon } from '../lib/fontAwesome'
+
 export default {
-  name: 'BaseHeader'
+  name: 'BaseHeader',
+  components: {
+    BaseButton,
+    FontAwesomeIcon
+  },
+  data() {
+    return {
+      // couleur identique au header pour ne faire apparaître que le bouton
+      buttonColor: '#42d392'
+    }
+  }
 }
 </script>
 
@@ -24,19 +38,26 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background: #2d8f64;
+  padding: 0.5rem 1rem;
+  background: #42d392;
+}
+
+/* Style du texte dans le bouton */
+.base-header .button-text {
+  margin-left: 0.5rem;
+  color: black;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Ajuste la taille de l’icône maison */
+.base-header .fa-home {
+  font-size: 1.2rem;
   color: black;
 }
-.base-header .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-.base-header a {
+
+.user-info {
   color: black;
-  text-decoration: none;
+  font-size: 0.9rem;
 }
 </style>
