@@ -10,14 +10,14 @@
       <BaseButton disabled        margin="0 0.5rem">Disabled</BaseButton>
     </div>
 
-    <!-- AsyncButton qui se désactive 2 s après clic -->
+    <!-- AsyncButton avec délai croissant -->
     <div class="buttons" style="margin-top: 1.5rem;">
       <AsyncButton
           color="primary"
           :action="handleAsyncClick"
           margin="0 0.5rem"
       >
-        Désactivé 2 s si cliqué
+        Désactivé {{ delaySeconds }} s si cliqué
       </AsyncButton>
     </div>
   </div>
@@ -30,10 +30,21 @@ import AsyncButton from '@/components/AsyncButton.vue'
 export default {
   name: 'HomePage',
   components: { BaseButton, AsyncButton },
+  data() {
+    return {
+      // délai actuel (en secondes) utilisé et incrémenté à chaque clic
+      delaySeconds: 2
+    }
+  },
   methods: {
     handleAsyncClick() {
-      // renvoie une Promise qui se résout après 2 s
-      return new Promise(resolve => setTimeout(resolve, 2000))
+      const currentDelay = this.delaySeconds
+      // incrémente pour le prochain clic
+      this.delaySeconds++
+      // renvoie une Promise qui se résout après currentDelay secondes
+      return new Promise(resolve => {
+        setTimeout(resolve, currentDelay * 1000)
+      })
     }
   }
 }
