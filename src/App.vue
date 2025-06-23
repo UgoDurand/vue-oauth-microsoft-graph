@@ -1,11 +1,18 @@
 <template>
   <div id="app">
+    <!-- On affiche directement la HomePage pour l’instant -->
+    <HomePage />
   </div>
 </template>
 
 <script>
+import HomePage from './pages/HomePage.vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    HomePage
+  }
 }
 </script>
 
